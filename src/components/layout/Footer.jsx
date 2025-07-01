@@ -1,8 +1,9 @@
 function Footer() {
   return (
-    <div className=''>
-      Tu código aquí
-    </div>
+    <footer className="footer">
+  {/*     <img className="logoSponsor" src="./images/adalab.png" alt="Logo Adalab"> */}
+    </footer>
+
   );
 }
 
