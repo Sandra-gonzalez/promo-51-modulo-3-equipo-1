@@ -1,0 +1,79 @@
+.header {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  
+  display: flex;
+  justify-content: space-between;
+
+  color: white;
+  background-color: darkcyan;
+
+  padding: 20px;
+}
+
+darkmode-slider {
+  --height: 22px;
+  --width: 40px;
+  --border-size: 4px;
+
+  display: block;
+  height: var(--height);
+}
+
+darkmode-slider .darkmode_switch {
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+}
+
+darkmode-slider input {
+  display:none;
+}
+
+darkmode-slider .darkmode_slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  border-radius: var(--height);
+}
+
+darkmode-slider .darkmode_slider:before {
+  background-color: #fff;
+  bottom: var(--border-size);
+  content: "";
+  height: calc( var(--height) - var(--border-size) * 2);
+  left: var(--border-size);
+  position: absolute;
+  transition: .4s;
+  width: calc( var(--width) / 2 - var(--border-size));
+  border-radius: 50%;
+}
+
+darkmode-slider input:checked + .darkmode_slider {
+  background-color: #66bb6a;
+}
+
+darkmode-slider input:checked + .darkmode_slider:before {
+  transform: translateX(calc( var(--width) / 2 - var(--border-size)));
+}
+
+darkmode-slider label:not(.darkmode_slider) {
+  vertical-align: top;
+  line-height: var(--height);
+  padding-inline: 0.5em;
+}
+
+body:has(darkmode-slider input:checked) {
+  background-color: black;
+}
+
+body:has(darkmode-slider input:checked) .main {
+  color: white;
+}

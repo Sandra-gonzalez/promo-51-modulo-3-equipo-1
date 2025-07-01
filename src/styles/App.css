@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fuente general */
+
+:root {
+  font: 16px 'Roboto', Verdana, sans-serif;
+}
+
+.main {
+  margin: 2em;
+  line-height: 1.5;
+}
