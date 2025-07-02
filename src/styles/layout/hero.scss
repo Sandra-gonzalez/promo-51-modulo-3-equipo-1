@@ -1,0 +1,33 @@
+@use '../core/variables';
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+
+  &__title {
+    font: variables.$font-title-biggest;
+    color: variables.$color-white;
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    color: variables.$color-white;
+    margin-bottom: 20px;
+    font: variables.$font-text-big;
+  }
+
+  .button--link {
+    background-color: variables.$color-dark-lilac;
+    color: variables.$color-white;
+    padding: 10px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    font: variables.$font-button;
+    display: inline-block;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: lighten(variables.$color-dark-lilac, 10%);
+    }
+  }
+}

@@ -1,91 +1,148 @@
-function Form() {
+import { useRef } from 'react';
+
+function Form({ data, handleInputChange, handleImageProject, handleImageAuthor }) {
+  // Referencias a los inputs de tipo file ocultos
+  const fileInputProject = useRef();
+  const fileInputAuthor = useRef();
+
+  // Función que lanza el input de tipo file para proyecto
+  const handleClickProject = () => {
+    fileInputProject.current.click();
+  };
+
+  // Función que lanza el input de tipo file para autora
+  const handleClickAuthor = () => {
+    fileInputAuthor.current.click();
+  };
+
+  // Lee la imagen del proyecto y la pasa al estado
+  const handleFileProject = (ev) => {
+    const file = ev.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      handleImageProject(reader.result);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
+  // Lee la imagen de la autora y la pasa al estado
+  const handleFileAuthor = (ev) => {
+    const file = ev.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      handleImageAuthor(reader.result);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
-    <form className="addForm">
-      <h2 className="title">Información</h2>
-      <fieldset className="addForm__group">
-        <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
+    <form className="form">
+      <h2 className="form__title">Información</h2>
+      <p className="form__subtitle">Cuéntanos sobre el proyecto</p>
+
+      <fieldset className="form__group">
         <input
-          className="addForm__input"
+          className="form__input"
           type="text"
-          name="name"
-          id="name"
+          name="projectName"
           placeholder="Nombre del proyecto"
+          value={data.projectName}
+          onChange={handleInputChange}
         />
+
         <input
-          className="addForm__input"
+          className="form__input"
           type="text"
           name="slogan"
-          id="slogan"
           placeholder="Slogan"
+          value={data.slogan}
+          onChange={handleInputChange}
         />
-        <div className="addForm__2col">
+
+        <div className="form__2col">
           <input
-            className="addForm__input"
-            type="url"
+            className="form__input"
+            type="text"
             name="repo"
-            id="repo"
             placeholder="Repositorio"
+            value={data.repo}
+            onChange={handleInputChange}
           />
           <input
-            className="addForm__input"
-            type="url"
+            className="form__input"
+            type="text"
             name="demo"
-            id="demo"
             placeholder="Demo"
+            value={data.demo}
+            onChange={handleInputChange}
           />
         </div>
+
         <input
-          className="addForm__input"
+          className="form__input"
           type="text"
           name="technologies"
-          id="technologies"
           placeholder="Tecnologías"
+          value={data.technologies}
+          onChange={handleInputChange}
         />
+
         <textarea
-          className="addForm__input"
-          name="desc"
-          id="desc"
+          className="form__input form__input--textarea"
+          name="description"
           placeholder="Descripción"
-          rows="5"
+          value={data.description}
+          onChange={handleInputChange}
         ></textarea>
       </fieldset>
-      <fieldset className="addForm__group">
-        <legend className="addForm__title">Cuéntanos sobre la autora</legend>
+
+      <p className="form__subtitle">Cuéntanos sobre la autora</p>
+
+      <fieldset className="form__group">
         <input
-          className="addForm__input"
+          className="form__input"
           type="text"
-          name="autor"
-          id="autor"
+          name="authorName"
           placeholder="Nombre"
+          value={data.authorName}
+          onChange={handleInputChange}
         />
+
         <input
-          className="addForm__input"
+          className="form__input"
           type="text"
           name="job"
-          id="job"
           placeholder="Trabajo"
+          value={data.job}
+          onChange={handleInputChange}
         />
       </fieldset>
-      <fieldset className="addForm__group--upload">
-        <label htmlFor="image" className="button">
+
+      {/* 🔥 Subida de imágenes perfectamente integrada */}
+      <fieldset className="form__group form__group--upload">
+        <button type="button" className="form__uploadButton" onClick={handleClickProject}>
           Subir foto del proyecto
-        </label>
+        </button>
         <input
-          className="addForm__hidden"
           type="file"
-          name="image"
-          id="image"
+          ref={fileInputProject}
+          onChange={handleFileProject}
+          className="form__hidden"
         />
-        <label htmlFor="photo" className="button">
+
+        <button type="button" className="form__uploadButton" onClick={handleClickAuthor}>
           Subir foto de la autora
-        </label>
+        </button>
         <input
-          className="addForm__hidden"
           type="file"
-          name="photo"
-          id="photo"
+          ref={fileInputAuthor}
+          onChange={handleFileAuthor}
+          className="form__hidden"
         />
-        <button className="button--large">Guardar proyecto</button>
       </fieldset>
     </form>
   );

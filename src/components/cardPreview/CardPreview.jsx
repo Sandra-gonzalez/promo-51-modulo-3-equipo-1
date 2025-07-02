@@ -1,38 +1,73 @@
-function CardPreview() {
+import imgBook from '../../images/ebook-example.jpg';
+import avatar from '../../images/avatar.webp';
+
+function CardPreview({ data }) {
   return (
-  
-      <section class="preview">
-        <div class="projectImage"></div>
-        <article class="card">
-          <h2 class="card__projectTitle"><span class="card__projectTitle--text">Personal project card</span></h2>
+    <section className="preview">
+      <div
+        className="projectImage"
+        style={{
+          backgroundImage: data.projectPhoto
+            ? `url(${data.projectPhoto})`
+            : `url(${imgBook})`
+        }}
+      ></div>
 
-          <div class="card__author">
-            <div class="card__authorPhoto"></div>
-            <p class="card__job">
-              Full stack Developer
+      <article className="card">
+        <h2 className="card__projectTitle">
+          <span className="card__projectTitle--text">Personal Project Card</span>
+        </h2>
+
+        <div className="card__author">
+          <div
+            className="card__authorPhoto"
+            style={{
+              backgroundImage: data.authorPhoto
+                ? `url(${data.authorPhoto})`
+                : `url(${avatar})`
+            }}
+          ></div>
+
+          <p className="card__job">{data.job || 'Full Stack Developer'}</p>
+          <h3 className="card__name">{data.authorName || 'Nombre Apellido'}</h3>
+        </div>
+
+        <div className="card__project">
+          <h3 className="card__name">{data.projectName || 'Nombre del proyecto'}</h3>
+          <p className="card__slogan">{data.slogan || 'Slogan del proyecto'}</p>
+          <h3 className="card__descriptionTitle">Product description</h3>
+          <p className="card__description">
+            {data.description ||
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit.'}
+          </p>
+
+          <div className="card__technicalInfo">
+            <p className="card__technologies">
+              {data.technologies || 'React JS - HTML - CSS'}
             </p>
-            <h3 class="card__name">Emmelie Bjôrklund</h3>
-          </div>
-      
-          <div class="card__project">            
-            <h3 class="card__name">Elegant Workspace</h3>
-            <p class="card__slogan">Diseños Exclusivos</p>
-            <h3 class="card__descriptionTitle">Product description</h3>
-            <p class="card__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, quos? Itaque, molestias eveniet laudantium adipisci vitae ratione</p>
 
-            <div class="card__technicalInfo">
-              <p class="card__technologies">React JS - HTML - CSS</p>
-          
-              <a class="icon icon__www" href="#" title="Haz click para ver el proyecto online">
-                Web link
-              </a>
-              <a class="icon icon__github" href="#" title="Haz click para ver el código del proyecto">
-                GitHub link
-              </a>
-            </div>
+            <a
+              className="icon icon__www"
+              href={data.demo || '#'}
+              target="_blank"
+              rel="noreferrer"
+              title="Haz click para ver el proyecto online"
+            >
+              Web link
+            </a>
+            <a
+              className="icon icon__github"
+              href={data.repo || '#'}
+              target="_blank"
+              rel="noreferrer"
+              title="Haz click para ver el código del proyecto"
+            >
+              GitHub link
+            </a>
           </div>
-        </article>
-      </section>
+        </div>
+      </article>
+    </section>
   );
 }
 

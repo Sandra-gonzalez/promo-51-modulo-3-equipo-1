@@ -1,17 +1,26 @@
+import logoAdalab from '../../images/adalab.png';
+import iconLaptop from '../../images/laptop-code-solid.svg';
+
 function Header() {
   return (
-     <header class="header">
-      <a class="header__brand" href="./" title="Haz click para volver a la página inicial">
-        {/* <img class="header__companyLogo" src="./images/laptop-code-solid.svg" alt="Logo proyectos molones"> */}
-        <h1 class="header__title">Proyectos molones</h1>
-      </a>
-      {/* <img class="logoSponsor" src="./images/adalab.png" alt="Logo Adalab"> */}
-      <section class="hero">
-        <h2 class="title">Proyectos molones</h2>
-        <p class="hero__text">Escaparate en línea para recoger ideas a través de la tecnología</p>
-        <a class="button--link" href="./">Ver proyectos</a>
-      </section>
+    <header className="header">
+      <div className="header__top">
+        <a className="header__brand" href="/">
+          <img src={iconLaptop} alt="Icono Laptop" className="header__icon" />
+          <p className="header__text">Proyectos Molones</p>
+        </a>
+        <img src={logoAdalab} alt="Logo Adalab" className="header__adalab" />
+      </div>
 
+      <section className="header__hero">
+        <h1 className="header__hero-title">Proyectos Molones</h1>
+        <p className="header__hero-subtitle">
+          Escaparate en línea para recoger ideas a través de la tecnología.
+        </p>
+        <a href="#" className="header__hero-button">
+          VER PROYECTO
+        </a>
+      </section>
     </header>
   );
 }
