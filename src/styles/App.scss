@@ -5,10 +5,12 @@
 @use './layout/hero';
 @use './layout/main';
 @use './layout/cardPreview';
+@use './layout/cardPreviewSite';
 @use './layout/footer';
 
 @use './components/form';
 @use './components/button';
+@use './components/buttonCard';
 @use './components/icons';
 
 

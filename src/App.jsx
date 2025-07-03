@@ -1,9 +1,9 @@
 import './styles/App.scss';
 import Header from './components/layout/Header.jsx';
+import Landing from './components/layout/Landing.jsx';
 import Footer from './components/layout/Footer.jsx';
-import FormSection from './components/form/FormSection.jsx';
-import CardPreview from './components/cardPreview/CardPreview.jsx';
-import Button from './components/Button.jsx';
+import CardPreviewSite from './components/cardPreview/CardPreviewSite.jsx';
+import { Routes, Route } from 'react-router';
 import { useState, useEffect } from 'react';
 
 // 🧠 Recupera los datos guardados al iniciar
@@ -63,6 +63,7 @@ function App() {
       job: '',
       authorPhoto: '',
       projectPhoto: '',
+         // id: '', // añadir un id para el key
     };
     setData(emptyData);
     localStorage.removeItem("formData");
@@ -71,17 +72,16 @@ function App() {
   return (
     <>
       <Header />
-      <main className="main">
-        <FormSection
-          data={data}
-          handleInputChange={handleInputChange}
-          handleImageProject={handleImageProject}
-          handleImageAuthor={handleImageAuthor}
-          handleResetForm={handleResetForm} 
-        />
-        <CardPreview data={data} />
-      </main>
-      <Button handleResetForm={handleResetForm} />
+       <Routes>
+	      <Route index path="/"  element= { 
+            <Landing data={data}
+                handleInputChange={handleInputChange}
+                handleImageProject={handleImageProject}
+                handleImageAuthor={handleImageAuthor}
+                handleResetForm={handleResetForm} />
+         } />
+	      <Route path="/cardPreview/" element= { <CardPreviewSite data={data}/> } />
+      </Routes>
       <Footer />
     </>
   );

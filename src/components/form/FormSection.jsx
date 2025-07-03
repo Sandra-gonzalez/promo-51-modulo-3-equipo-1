@@ -1,14 +1,14 @@
 import Form from './Form.jsx';
-import imgbook from '../../images/ebook-example.jpg';
-import PropTypes from "prop-types";
+// import imgbook from '../../images/ebook-example.jpg';
+// import PropTypes from "prop-types"; no hace falta, ya se llaman a los props directamente en la función
 
 function FormSection({ data, handleInputChange, handleImageProject, handleImageAuthor, handleResetForm }) {
   return (
     <section className="formSection">
-      <div
+{/*     ESTO NO HACE FALTA, ES UN DIV CON UNA IMAGEN DE FONDO PERO QUE COMO NO TIENE NI WIDTH NI HEIGHT NI SE PINTA (no lo borro por si está por alguna razón):::  <div
         className="formSection__image"
         style={{ backgroundImage: `url(${imgbook})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-      ></div>
+      ></div> */}
 
       <div className="formSection__content">
         <Form
@@ -24,12 +24,12 @@ function FormSection({ data, handleInputChange, handleImageProject, handleImageA
   );
 }
 
-FormSection.propTypes = {
+/* FormSection.propTypes = {
   data: PropTypes.object.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   handleImageProject: PropTypes.func.isRequired,
   handleImageAuthor: PropTypes.func.isRequired,
   handleResetForm: PropTypes.func.isRequired
-};
+}; */
 
 export default FormSection;

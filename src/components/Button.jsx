@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 
 function Button({ handleResetForm }) {
   return (
@@ -9,9 +9,9 @@ function Button({ handleResetForm }) {
     </div>
   );
 }
-
+/* 
 Button.propTypes = {
   handleResetForm: PropTypes.func.isRequired
-};
+}; */
 
 export default Button;

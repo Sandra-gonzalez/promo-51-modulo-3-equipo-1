@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 function Form({ data, handleInputChange, handleImageProject, handleImageAuthor, handleResetForm }) {
   const fileInputProject = useRef();
@@ -147,12 +147,14 @@ function Form({ data, handleInputChange, handleImageProject, handleImageAuthor, 
   );
 }
 
+/* no hacen falta, las estamos llamando dos veces:
+
 Form.propTypes = {
   data: PropTypes.object.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   handleImageProject: PropTypes.func.isRequired,
   handleImageAuthor: PropTypes.func.isRequired,
   handleResetForm: PropTypes.func.isRequired
-};
+}; */
 
 export default Form;
