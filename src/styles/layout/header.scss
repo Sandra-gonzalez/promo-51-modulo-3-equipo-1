@@ -1,4 +1,4 @@
-@use '../core/variables';
+@use "../core/variables";
 
 .header {
   background-color: variables.$color-dusk;
@@ -39,6 +39,8 @@
   &__hero {
     text-align: center;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap: 1rem;
     margin-inline: 2rem;
@@ -55,14 +57,16 @@
   }
 
   &__hero-button {
-    background-color: variables.$color-white;
-    color: variables.$color-black;
+    background-color: variables.$color-dark-lilac;
+    color: variables.$color-white;
+    width: 20%;
     padding: 8px 20px;
     border-radius: 50px;
     font-weight: bold;
     text-decoration: none;
     display: inline-block;
     transition: background-color 0.3s;
+    text-align: center;
 
     &:hover {
       background-color: variables.$color-dark-lilac;
