@@ -1,21 +1,18 @@
 import { useRef } from 'react';
+import PropTypes from "prop-types";
 
-function Form({ data, handleInputChange, handleImageProject, handleImageAuthor }) {
-  // Referencias a los inputs de tipo file ocultos
+function Form({ data, handleInputChange, handleImageProject, handleImageAuthor, handleResetForm }) {
   const fileInputProject = useRef();
   const fileInputAuthor = useRef();
 
-  // Función que lanza el input de tipo file para proyecto
   const handleClickProject = () => {
     fileInputProject.current.click();
   };
 
-  // Función que lanza el input de tipo file para autora
   const handleClickAuthor = () => {
     fileInputAuthor.current.click();
   };
 
-  // Lee la imagen del proyecto y la pasa al estado
   const handleFileProject = (ev) => {
     const file = ev.target.files[0];
     const reader = new FileReader();
@@ -27,7 +24,6 @@ function Form({ data, handleInputChange, handleImageProject, handleImageAuthor }
     }
   };
 
-  // Lee la imagen de la autora y la pasa al estado
   const handleFileAuthor = (ev) => {
     const file = ev.target.files[0];
     const reader = new FileReader();
@@ -53,7 +49,6 @@ function Form({ data, handleInputChange, handleImageProject, handleImageAuthor }
           value={data.projectName}
           onChange={handleInputChange}
         />
-
         <input
           className="form__input"
           type="text"
@@ -90,7 +85,6 @@ function Form({ data, handleInputChange, handleImageProject, handleImageAuthor }
           value={data.technologies}
           onChange={handleInputChange}
         />
-
         <textarea
           className="form__input form__input--textarea"
           name="description"
@@ -111,7 +105,6 @@ function Form({ data, handleInputChange, handleImageProject, handleImageAuthor }
           value={data.authorName}
           onChange={handleInputChange}
         />
-
         <input
           className="form__input"
           type="text"
@@ -122,7 +115,6 @@ function Form({ data, handleInputChange, handleImageProject, handleImageAuthor }
         />
       </fieldset>
 
-      {/* 🔥 Subida de imágenes perfectamente integrada */}
       <fieldset className="form__group form__group--upload">
         <button type="button" className="form__uploadButton" onClick={handleClickProject}>
           Subir foto del proyecto
@@ -144,8 +136,23 @@ function Form({ data, handleInputChange, handleImageProject, handleImageAuthor }
           className="form__hidden"
         />
       </fieldset>
+
+      {/* 🧹 Botón de reset agregado */}
+      <fieldset className="form__group">
+        <button type="button" className="form__resetButton" onClick={handleResetForm}>
+          Reiniciar formulario
+        </button>
+      </fieldset>
     </form>
   );
 }
+
+Form.propTypes = {
+  data: PropTypes.object.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+  handleImageProject: PropTypes.func.isRequired,
+  handleImageAuthor: PropTypes.func.isRequired,
+  handleResetForm: PropTypes.func.isRequired
+};
 
 export default Form;
