@@ -6,7 +6,6 @@ import CardPreviewSite from './components/cardPreview/CardPreviewSite.jsx';
 import { Routes, Route } from 'react-router';
 import { useState, useEffect } from 'react';
 
-// 🧠 Recupera los datos guardados al iniciar
 const getInitialData = () => {
   const stored = localStorage.getItem("formData");
   return stored
@@ -26,31 +25,26 @@ const getInitialData = () => {
 };
 
 function App() {
-  // 🧠 Estado del formulario, cargado desde localStorage si existe
+  
   const [data, setData] = useState(getInitialData);
 
-  // 💾 Guarda los datos automáticamente al cambiar
   useEffect(() => {
     localStorage.setItem("formData", JSON.stringify(data));
   }, [data]);
 
-  // 📝 Recoge los cambios de los inputs de texto
   const handleInputChange = (ev) => {
     const { name, value } = ev.target;
     setData({ ...data, [name]: value });
   };
 
-  // 🖼 Actualiza la imagen del proyecto
   const handleImageProject = (image) => {
     setData({ ...data, projectPhoto: image });
   };
 
-  // 🧝‍♀️ Actualiza la imagen de la autora
   const handleImageAuthor = (image) => {
     setData({ ...data, authorPhoto: image });
   };
 
-  // 🧹 Reinicia el formulario y borra el localStorage
 const [formKey, setFormKey] = useState(0); 
 
 const handleResetForm = () => {

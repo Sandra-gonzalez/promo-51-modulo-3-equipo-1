@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-// import PropTypes from "prop-types";
 
 function Form({ data, handleInputChange, handleImageProject, handleImageAuthor, handleResetForm }) {
   const fileInputProject = useRef();
