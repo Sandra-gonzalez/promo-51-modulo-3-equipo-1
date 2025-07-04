@@ -1,7 +1,7 @@
 import './styles/App.scss';
-import Home from './pages/Home.jsx';
+import Landing from './pages/Landing.jsx';
 import Header from './components/layout/Header.jsx';
-import Landing from './components/layout/Landing.jsx';
+import Home from './components/layout/Home.jsx';
 import Footer from './components/layout/Footer.jsx';
 import CardPreviewSite from './components/cardPreview/CardPreviewSite.jsx';
 import { Routes, Route } from 'react-router';
@@ -71,9 +71,9 @@ const handleResetForm = () => {
     <>
       <Header />
       <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Landing />} />
      <Route path="/app" element={
-      <Landing 
+      <Home 
       key={formKey}
       data={data}
       handleInputChange={handleInputChange}

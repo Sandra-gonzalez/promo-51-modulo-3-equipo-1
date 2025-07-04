@@ -11,16 +11,6 @@ function Header() {
         </a>
         <img src={logoAdalab} alt="Logo Adalab" className="header__adalab" />
       </div>
-
-      <section className="header__hero">
-        <h1 className="header__hero-title">Proyectos Molones</h1>
-        <p className="header__hero-subtitle">
-          Escaparate en línea para recoger ideas a través de la tecnología.
-        </p>
-        <a href="#" className="header__hero-button">
-          VER PROYECTO
-        </a>
-      </section>
     </header>
   );
 }
