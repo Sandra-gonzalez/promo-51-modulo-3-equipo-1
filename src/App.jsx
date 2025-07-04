@@ -51,30 +51,35 @@ function App() {
   };
 
   // 🧹 Reinicia el formulario y borra el localStorage
-  const handleResetForm = () => {
-    const emptyData = {
-      projectName: '',
-      slogan: '',
-      repo: '',
-      demo: '',
-      technologies: '',
-      description: '',
-      authorName: '',
-      job: '',
-      authorPhoto: '',
-      projectPhoto: '',
-         // id: '', // añadir un id para el key
-    };
-    setData(emptyData);
-    localStorage.removeItem("formData");
+const [formKey, setFormKey] = useState(0); 
+
+const handleResetForm = () => {
+  const emptyData = {
+    projectName: '',
+    slogan: '',
+    repo: '',
+    demo: '',
+    technologies: '',
+    description: '',
+    authorName: '',
+    job: '',
+    authorPhoto: '',
+    projectPhoto: '',
   };
+  
+  setData(emptyData);
+  localStorage.removeItem("formData");
+  setFormKey(prev => prev + 1); 
+};
 
   return (
     <>
       <Header />
        <Routes>
 	      <Route index path="/"  element= { 
-            <Landing data={data}
+            <Landing 
+                key={formKey}
+                data={data}
                 handleInputChange={handleInputChange}
                 handleImageProject={handleImageProject}
                 handleImageAuthor={handleImageAuthor}

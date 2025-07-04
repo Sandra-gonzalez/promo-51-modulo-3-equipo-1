@@ -1,4 +1,3 @@
-import Button from '../Button.jsx';
 import ButtonCard from '../ButtonCard.jsx';
 import FormSection from '../form/FormSection.jsx';
 import CardPreview from '../cardPreview/CardPreview.jsx';
@@ -6,7 +5,7 @@ import CardPreview from '../cardPreview/CardPreview.jsx';
 
 
 
-function Landing ({data, handleInputChange, handleImageProject, handleImageAuthor }) {
+function Landing ({data, handleInputChange, handleImageProject, handleImageAuthor, handleResetForm}) {
 
 
     return (
@@ -17,6 +16,7 @@ function Landing ({data, handleInputChange, handleImageProject, handleImageAutho
                 handleInputChange={handleInputChange}
                 handleImageProject={handleImageProject}
                 handleImageAuthor={handleImageAuthor}
+                handleResetForm={handleResetForm}
               />
                 <CardPreview data={data} />
               </main>

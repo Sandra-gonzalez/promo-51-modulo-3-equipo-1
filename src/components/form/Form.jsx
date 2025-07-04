@@ -137,7 +137,7 @@ function Form({ data, handleInputChange, handleImageProject, handleImageAuthor, 
         />
       </fieldset>
 
-      {/* 🧹 Botón de reset agregado */}
+      
       <fieldset className="form__group">
         <button type="button" className="form__resetButton" onClick={handleResetForm}>
           Reiniciar formulario
@@ -147,14 +147,5 @@ function Form({ data, handleInputChange, handleImageProject, handleImageAuthor, 
   );
 }
 
-/* no hacen falta, las estamos llamando dos veces:
-
-Form.propTypes = {
-  data: PropTypes.object.isRequired,
-  handleInputChange: PropTypes.func.isRequired,
-  handleImageProject: PropTypes.func.isRequired,
-  handleImageAuthor: PropTypes.func.isRequired,
-  handleResetForm: PropTypes.func.isRequired
-}; */
 
 export default Form;
