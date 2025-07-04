@@ -1,4 +1,5 @@
 import './styles/App.scss';
+import Home from './pages/Home.jsx';
 import Header from './components/layout/Header.jsx';
 import Landing from './components/layout/Landing.jsx';
 import Footer from './components/layout/Footer.jsx';
@@ -69,17 +70,19 @@ const handleResetForm = () => {
   return (
     <>
       <Header />
-       <Routes>
-	      <Route index path="/"  element= { 
-            <Landing 
-                key={formKey}
-                data={data}
-                handleInputChange={handleInputChange}
-                handleImageProject={handleImageProject}
-                handleImageAuthor={handleImageAuthor}
-                handleResetForm={handleResetForm} />
-         } />
-	      <Route path="/cardPreview/" element= { <CardPreviewSite data={data}/> } />
+      <Routes>
+      <Route path="/" element={<Home />} />
+     <Route path="/app" element={
+      <Landing 
+      key={formKey}
+      data={data}
+      handleInputChange={handleInputChange}
+      handleImageProject={handleImageProject}
+      handleImageAuthor={handleImageAuthor}
+      handleResetForm={handleResetForm}
+      />
+      } />
+      <Route path="/cardPreview" element={<CardPreviewSite data={data} />} />
       </Routes>
       <Footer />
     </>
