@@ -1,11 +1,12 @@
 @use '../core/variables';
 
 .footer {
-  background-color: variables.$color-dusk;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  margin-top: 2rem;
 
   &__logo {
     width: 100px;

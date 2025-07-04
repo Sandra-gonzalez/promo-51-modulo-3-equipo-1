@@ -1,11 +1,13 @@
 @use "../core/variables";
 
-.header {
-  background-color: #ffffff;
-  padding: 16px;
 
+.header {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 16px;
   gap: 32px;
 
   &__top {

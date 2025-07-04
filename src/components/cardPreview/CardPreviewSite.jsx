@@ -8,8 +8,7 @@ function CardPreviewSite({ data }) {
   return (
   <>
     <h2 className="project__title">Aquí tienes tu proyecto:</h2>
-      <Link to="/app" className="bt-back">Volver atrás
-              </Link>
+      <span  className="bt-back">◀  <Link to="/app" className="bt-back__text"> Volver atrás</Link></span>
       <section className="project">
       <div className="project__image">
         <CardImage data={data} />
@@ -25,9 +24,29 @@ function CardPreviewSite({ data }) {
 
           <p className="project__subtitle">About your project:</p>
           <CardProject data={data} />
+          <a
+              className="project__link"
+              href={data.demo || '#'}
+              target="_blank"
+              rel="noreferrer"
+              title="Haz click para ver el proyecto online"
+            >
+              Web</a><span> | </span>
+            <a
+              className="project__link"
+              href={data.repo || '#'}
+              target="_blank"
+              rel="noreferrer"
+              title="Haz click para ver el código del proyecto"
+            >
+              Repositorio
+            </a>
 
       </article>
     </section> 
+    <section className="project__upload">
+      <button className="button--preview">Subir proyecto</button>
+    </section>
  </>
   );
 }

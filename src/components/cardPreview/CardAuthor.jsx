@@ -14,8 +14,8 @@ function CardAuthor ({data}) {
                     }}
                 ></div>
 
-                <p className="card__job">{data.job || 'Full Stack Developer'}</p>
-                <h3 className="card__name">{data.authorName || 'Nombre Apellido'}</h3>
+                <h3>{data.authorName || 'Nombre Apellido'}</h3>
+                 <p>{data.job || 'Full Stack Developer'}</p>
             </div>
         </>
     )

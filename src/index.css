@@ -1,17 +1,3 @@
-.header {
-  position: sticky;
-  width: 100%;
-  top: 0;
-  
-  display: flex;
-  justify-content: space-between;
-
-  color: white;
-  background-color: darkcyan;
-
-  padding: 20px;
-}
-
 darkmode-slider {
   --height: 22px;
   --width: 40px;

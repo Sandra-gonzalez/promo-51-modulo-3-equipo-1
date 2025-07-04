@@ -62,7 +62,7 @@ function Form({ data, handleInputChange, handleImageProject, handleImageAuthor, 
             className="form__input"
             type="text"
             name="repo"
-            placeholder="Repositorio"
+            placeholder="Link de tu repositorio"
             value={data.repo}
             onChange={handleInputChange}
           />
@@ -70,7 +70,7 @@ function Form({ data, handleInputChange, handleImageProject, handleImageAuthor, 
             className="form__input"
             type="text"
             name="demo"
-            placeholder="Demo"
+            placeholder="Link de tu web"
             value={data.demo}
             onChange={handleInputChange}
           />

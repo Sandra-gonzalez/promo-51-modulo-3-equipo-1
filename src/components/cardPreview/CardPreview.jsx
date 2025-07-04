@@ -2,6 +2,7 @@
 import CardImage from './CardImage.jsx';
 import CardAuthor from './CardAuthor.jsx';
 import CardProject from './CardProject.jsx';
+import ButtonCard from '../ButtonCard.jsx';
 
 
 
@@ -17,7 +18,9 @@ function CardPreview({ data }) {
 
        
       </article>
+       <ButtonCard />
     </section>
+     
   );
 }
 
