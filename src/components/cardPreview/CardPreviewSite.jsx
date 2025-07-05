@@ -31,7 +31,7 @@ function CardPreviewSite({ data }) {
               rel="noreferrer"
               title="Haz click para ver el proyecto online"
             >
-              Web</a><span> | </span>
+              {data.web ? "Web" : ""}</a><span> {data.web ? " | " : ""} </span>
             <a
               className="project__link"
               href={data.repo || '#'}
@@ -39,7 +39,7 @@ function CardPreviewSite({ data }) {
               rel="noreferrer"
               title="Haz click para ver el código del proyecto"
             >
-              Repositorio
+             {data.repo ? "Repositorio" : ""}
             </a>
 
       </article>
