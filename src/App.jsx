@@ -32,7 +32,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem("formData", JSON.stringify(data));
   }, [data]);
-
+  
   const handleInputChange = (ev) => {
     const { name, value } = ev.target;
     setData({ ...data, [name]: value });

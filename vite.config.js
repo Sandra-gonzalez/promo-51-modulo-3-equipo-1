@@ -3,11 +3,12 @@ import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "./",
+  base: "/promo-51-modulo-3-equipo-1/",
   plugins: [react()],
+
   server: {
-    open: "/",
-    watch: {
+  open: "/",
+  watch: {
       usePolling: true,
     },
   },
