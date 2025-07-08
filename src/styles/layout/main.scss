@@ -1,5 +1,8 @@
 @use '../core/variables';
 
+.main {
+    padding-bottom: 2rem;
+}
 .container {
   padding: 22px;
   background-color: variables.$color-dark;

@@ -1,5 +1,5 @@
 import FormSection from '../form/FormSection.jsx';
-import CardPreview from '../cardPreview/CardPreview.jsx';
+import CardPreview from '../cardPreview/CardPreviewForm.jsx';
 import Hero from './Hero.jsx';
 
 

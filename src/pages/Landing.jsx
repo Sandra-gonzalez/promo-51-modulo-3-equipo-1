@@ -6,8 +6,8 @@ function Home() {
     <div className="home">
       <div className="home__card">
         <h1>¡Hola!</h1>
-        <p>¿Quieres crear una tarjeta de tu proyecto molón?</p>
-        <p>¡Estás en el sitio indicado!</p>
+        <p>¿Quieres sumar tu proyecto al escaparate de TalentLAB?</p>
+        <p>¡Comparte tu proyecto!</p>
 
         <Link to="/app">
           <button className="home__button">Entrar</button>

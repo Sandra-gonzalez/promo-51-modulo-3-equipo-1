@@ -7,7 +7,7 @@ function Header() {
       <div className="header__top">
         <a className="header__brand" href="/">
           <img src={iconLaptop} alt="Icono Laptop" className="header__icon" />
-          <p className="header__text">Proyectos Molones</p>
+          <p className="header__text">TalentLAB</p>
         </a>
         <img src={logoAdalab} alt="Logo Adalab" className="header__adalab" />
       </div>
