@@ -32,7 +32,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem("formData", JSON.stringify(data));
   }, [data]);
-  
+  //
   const handleInputChange = (ev) => {
     const { name, value } = ev.target;
     setData({ ...data, [name]: value });
@@ -66,6 +66,37 @@ const handleResetForm = () => {
   localStorage.removeItem("formData");
   setFormKey(prev => prev + 1); 
 };
+const [response, setResponse] = useState(null);
+
+const saveProject = (data) => {
+const newdata  = {
+  name: data.projectName,
+  slogan: data.slogan,
+  repo: data.repo,
+  demo: data.demo,
+  technologies: data.technologies,
+  desc: data.description,
+  autor: data.authorName,
+  job: data.job,
+  image: data.authorPhoto,
+  photo: data.projectPhoto,
+};
+  fetch('https://dev.adalab.es/api/projectCard',
+    {
+      method: 'POST',
+      body: JSON.stringify(newdata),
+      headers: {'Content-Type': 'application/json'}
+    })
+      .then(response => response.json())
+      .then(dataResponse => {
+        //Mirar que devuelve esa petición y que podemos hacer con ella
+        console.log(dataResponse);
+        console.log(dataResponse.success  ? 'Proyecto guardado correctamente' : 'Error al guardar el proyecto');
+        setResponse(dataResponse);
+      });
+  };
+
+
 
   return (
     <>
@@ -82,7 +113,7 @@ const handleResetForm = () => {
       handleResetForm={handleResetForm}
       />
       } />
-      <Route path="/cardPreview" element={<CardPreviewSite data={data} />} />
+      <Route path="/cardPreview" element={<CardPreviewSite data={data} response={response} saveProject={saveProject} />} />
       </Routes>
       <Footer />
     </>

@@ -4,7 +4,13 @@ import CardProject from './CardProject.jsx';
 import { Link } from 'react-router';
 
 
-function CardPreviewSite({ data }) {
+
+function CardPreviewSite({ data,saveProject, response }) {
+  const handleSaveProject = () => {
+    console.log("Proyecto guardado:", data);
+    saveProject(data);
+  };
+
   return (
   <>
     <h2 className="project__title">Aquí tienes tu proyecto:</h2>
@@ -44,8 +50,17 @@ function CardPreviewSite({ data }) {
 
       </article>
     </section> 
-    <section className="project__upload">
-      <button className="button--preview">Subir proyecto</button>
+    <section className="project__upload"> 
+      <button className="button--preview" onClick={
+        handleSaveProject }>Subir proyecto</button>
+        {response && <p className='bt-back'>{response.success  ? 
+        (
+      <>
+        Proyecto guardado correctamente. Puedes ver tu proyecto{' '}
+        <a className="colorWhite" target="_blank" href={response.cardURL}>aquí</a>.
+      </>
+    ): 'Error al guardar el proyecto. Falta algún campo por completar'}</p>}
+
     </section>
  </>
   );
